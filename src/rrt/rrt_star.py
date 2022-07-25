@@ -2,9 +2,9 @@
 # file 'LICENSE', which is part of this source code package.
 from operator import itemgetter
 
-from src.rrt.heuristics import cost_to_go
-from src.rrt.heuristics import segment_cost, path_cost
-from src.rrt.rrt import RRT
+from .heuristics import cost_to_go
+from .heuristics import segment_cost, path_cost
+from .rrt import RRT
 
 
 class RRTStar(RRT):
@@ -93,7 +93,7 @@ class RRTStar(RRT):
 
         while True:
             for q in self.Q:  # iterate over different edge lengths
-                for i in range(q[1]):  # iterate over number of edges of given length to add
+                for i in range(int(q[1])):  # iterate over number of edges of given length to add
                     x_new, x_nearest = self.new_and_near(0, q)
                     if x_new is None:
                         continue
