@@ -36,6 +36,7 @@ class SearchSpace(object):
                 raise Exception("Obstacle has incorrect dimension definition")
             if any(o[i] >= o[int(i + len(o) / 2)] for o in O for i in range(int(len(o) / 2))):
                 raise Exception("Obstacle start must be less than obstacle end")
+
             self.obs = index.Index(obstacle_generator(O), interleaved=True, properties=p)
 
     def obstacle_free(self, x):
